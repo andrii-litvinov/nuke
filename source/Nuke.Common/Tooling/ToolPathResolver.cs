@@ -3,7 +3,6 @@
 // https://github.com/nuke-build/nuke/blob/master/LICENSE
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
@@ -64,7 +63,7 @@ namespace Nuke.Common.Tooling
                 return frameworks.Values.Single();
 
             ControlFlow.Assert(framework != null && frameworks.ContainsKey(framework),
-                $"Package executable {packageExecutables.JoinCommaOr()} [{packageId}] requires a framework:"
+                $"Package executable {packageExecutables.JoinCommaOr()} [{packageId}] requires one of the following frameworks to be specified:"
                     .Concat(frameworks.Keys.Select(x => $" - {x}")).JoinNewLine());
             return frameworks[framework];
         }
